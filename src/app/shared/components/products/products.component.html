@@ -1,0 +1,28 @@
+<!-- <p>La cantidad: {{myShoppingCart.length}} </p>
+<p>El total: S/{{total}} </p>
+<p>
+    Today: {{date | timeAgo }}
+</p>
+<!-<button (click)="toggleProductDetail()">click</button> -> este es comentario de comentario
+<button (click)="createNewProduct()">Create</button>
+<button (click)="onShowDetail('432432')">Detail not found</button> -->
+<div class="products--grid">
+    <app-product (addedProduct)="onAddToShoppingCart($event)" (showProduct)="onShowDetail($event)" [product]="product"
+        *ngFor="let product of products"></app-product>
+    <button (click)="onLoadMore()">Load more...</button>
+</div>
+<div class="product-detail" [class.active]="showProductDetail">
+    {{statusDetail}}
+    <div *ngIf="productChosen">
+        <button (click)="toggleProductDetail()">Close</button>
+        <h1> {{productChosen.title}} </h1>
+        <swiper-container>
+            <swiper-slide *ngFor="let img of productChosen.images">
+                <img [src]="img" alt="">
+            </swiper-slide>
+        </swiper-container>
+        <p> {{productChosen.description}} </p>
+        <button (click)="updateProduct()">Editar</button>
+        <button (click)="deleteProduct()">Eliminar</button>
+    </div>
+</div>

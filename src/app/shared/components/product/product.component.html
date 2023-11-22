@@ -1,0 +1,10 @@
+<a [routerLink]="['/product', product.id]"><app-img  [changeImg]="product.images[0]"></app-img></a>
+
+<h2>{{product.price | currency:'USD':'symbol' }} </h2>
+<p> {{product.title}} </p>
+<p> Taxes: {{product.taxes ?? '' | currency:'USD':'symbol'}} </p>
+<!-- <p> {{product.title | reverse}} </p> -->
+<p appHighlight> {{product.description}} </p>
+<!-- <button (click)="onShowDetail()">View detail</button> -->
+<a routerLink='.' [queryParams]="{product: product.id}">Ver detalle</a>
+<button (click)="onAddToCart()">Add cart</button>

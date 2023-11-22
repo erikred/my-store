@@ -1,0 +1,21 @@
+<div class="page-product">
+    <button (click)="goToBack()" class="back-btn">
+        <svg xmlns="https://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>Back
+    </button>
+    <div class="detail" *ngIf="product">
+      <div class="gallery">
+        <swiper-container>
+            <swiper-slide *ngFor="let img of product?.images">
+                <img [src]="img" alt="">
+            </swiper-slide>
+        </swiper-container>
+      </div>
+      <div>
+        <h2>{{ product.title }}</h2>
+        <h3>{{ product.price | currency }}</h3>
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
+  </div>
